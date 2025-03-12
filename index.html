@@ -26,10 +26,144 @@
       body {
         font-family: "Inter", sans-serif;
       }
+
+      .active {
+        background-color: #ff1f3d;
+        color: white;
+      }
+    </style>
+
+    <!-- tailwind custom theme -->
+    <style type="text/tailwindcss">
+      @theme {
+        --color-main-clr: #ff1f3d;
+      }
     </style>
   </head>
   <body>
-    <h1>Welcome to PH Tube</h1>
+    <header class="max-w-screen-xl mx-auto px-3">
+      <nav class="flex justify-between py-5 mt-4 border-b border-slate-300">
+        <div><img src="images/Logo.png" alt="" /></div>
+
+        <div>
+          <label class="input">
+            <svg
+              class="h-[1em] opacity-50"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <g
+                stroke-linejoin="round"
+                stroke-linecap="round"
+                stroke-width="2.5"
+                fill="none"
+                stroke="currentColor"
+              >
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.3-4.3"></path>
+              </g>
+            </svg>
+            <input id="search-box" type="search" required placeholder="Search" />
+          </label>
+        </div>
+
+        <button class="btn bg-main-clr text-white rounded-lg">Blog</button>
+      </nav>
+    </header>
+
+    <!-- main section -->
+    <main class="max-w-screen-xl mx-auto px-3 mt-7 space-y-6">
+      <!-- category button -->
+      <div id="category-btn" class="flex gap-5 justify-center">
+        <button id="btn-all" onclick="loadAllVideos()" class="btn active">
+          All
+        </button>
+      </div>
+
+      <!-- loading spinner -->
+      <div id="loader" class="text-center hidden">
+        <span class="loading loading-dots loading-xl"></span>
+      </div>
+
+      <!-- video card container -->
+      <div id="card-container" class="grid grid-cols-4 gap-4">
+        <!-- <div class="relative card bg-base-100 shadow-sm max-h-[360px]">
+          <figure class="relative w-full h-[170px]">
+            <img
+              class="w-full h-full"
+              src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+              alt="Shoes"
+            />
+            <p
+              class="absolute bottom-3 right-3 bg-slate-700 opacity-60 rounded-lg text-white py-1 px-2 text-sm"
+            >
+              3hrs 56 min ago
+            </p>
+          </figure>
+
+          <div class="flex gap-3 mt-3 px-1">
+            <div>
+              <div class="avatar">
+                <div class="w-12 rounded-full">
+                  <img
+                    src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h2 class="card-title">Python Full</h2>
+
+              <div class="justify-start flex flex-col">
+                <div class="flex gap-3 items-center text-slate-600">
+                  <p>Awlad Hossain</p>
+                  <div>
+                    <img src="./images/icons8-verify-30.png" alt="" />
+                  </div>
+                </div>
+                <p>91k views</p>
+              </div>
+            </div>
+          </div>
+
+          <button class="absolute bottom-0 w-full btn btn-soft btn-info pb-0 mb-0">
+            Show Details
+          </button>
+        </div> -->
+
+        <!-- error message -->
+        <!-- <div
+          class="col-span-4 text-center flex flex-col items-center justify-center mt-20"
+        >
+          <div><img src="images/Icon.png" alt="" /></div>
+          <h1 class="text-3xl font-bold">
+            Oops!! Sorry, There is no <br />
+            content here
+          </h1>
+        </div> -->
+      </div>
+
+      <!-- details modal -->
+      <!-- Open the modal using ID.showModal() method -->
+      <!-- <button class="btn" onclick="my_modal_1.showModal()">open modal</button> -->
+      <div id="modal-container">
+        <!-- <dialog id="details_modal" class="modal">
+          <div class="modal-box">
+            <h3 class="text-lg font-bold">Hello!</h3>
+            <p class="py-4">Press ESC key or click the button below to close</p>
+            <div class="w-[200px] my-3">
+              <img src="" alt="" />
+            </div>
+            <div class="modal-action">
+              <form method="dialog">
+                <button class="btn">Close</button>
+              </form>
+            </div>
+          </div>
+        </dialog> -->
+      </div>
+    </main>
     <!-- script link -->
     <script src="./script/app.js"></script>
   </body>
